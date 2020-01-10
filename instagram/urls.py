@@ -15,12 +15,13 @@ Including another URLconf
 """
 
 from django.conf.urls import url
-from . import views
+
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import include
 from django.contrib.auth import views as auth_views
-from .views import *
+from django.contrib.auth import views
+
 
 urlpatterns=[   
     url(r'^$', views.index, name='index'),
@@ -34,7 +35,7 @@ urlpatterns=[
     url(r'^accounts/profile',views.profile,name="profile"),
     url(r'^profile',views.profile,name="profile"),
     
-    # url(r'^profile/<username>/',views.user_profile, name='user_profile'),
+    url(r'^profile/<username>/',views.user_profile, name='user_profile'),
     url(r'^user_profile/<username>/', user_profile, name='user_profile'),
     url(r'^post/<id>', post_comment, name='comment'),
     url(r'^like', like_post, name='like_post'),
