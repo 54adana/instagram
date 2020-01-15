@@ -1,67 +1,84 @@
 {% extends 'base.html'%}
+{% load bootstrap3 %}
 {% block content %}
 {% if user.is_authenticated %}
 <!--Left side of the posts-->
+<div class="post">
 <div class="container mt-5">
     <div class="row">
         <!-- Padding left -->
         <div class="col-sm-1"></div>
         <!-- End padding -->
-
+        <div class="card-body text-center">
         <div class="col-sm-6">
             <!-- The post itself-->
-            <div class="posts card">
+            
+                <!-- Post header-->
+                <div class=" row jumbotron">
+                    <div class="card">
+                        <img src="https://images.pexels.com/photos/922475/pexels-photo-922475.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                            class="col-sm-10 rounded-img" alt="pic">
+                        
+              
+                    </div>
+                    <div class="card-footer" class="row">
+                        <a class="btn " href="{{post.image_comments}}" role="button">
+                        <i class="far fa-heart fa-2x"  style="color: red;"></i>
+                        </a>
+                        <a class="btn " href="{{post.image_comments}}" role="button">
+                        <i class="far fa-comment fa-2x" style="color: blue;"></i></a>
+                    </div>
+                
+                
+            
+
+                </div>   
+
+    </div>
+
+
+
+<div class="card-body text-center">
+        <div class="col-sm-6">
+            <!-- The post itself-->
+            
                 <!-- Post header-->
                 <div class="posts-header row">
-                    <img src="https://images.pexels.com/photos/922475/pexels-photo-922475.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="col-sm-10 rounded-img" alt="pic">
-                    
-                </div>
-                <!-- Post image -->
-                <div class="post-image col-sm-12">
-                    
-                </div>
-                <!-- Icons under the posts -->
-                <div class="like-icons mt-5">
-
-                </div>
-                <!-- Additional info-->
-                <!-- <p class="likes">2 likes</p>
-                <p class="caption">post caption</p>
-                <p class="time-posted"> 4hrs ago</p>
-                <div class="comment">comment here....</div> -->
-                <!-- End post -->
-            </div>
-        </div>
-
-        <!-- -->
-        <!-- Left side of the posts -->
-        <div class="col-sm-4">
-            <!-- User profile section -->
-            <div class="user-info row card">
-                <img src="https://images.pexels.com/photos/1122868/pexels-photo-1122868.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="profile-ico" class="col-sm-3">
-                <div class="profile">
-                    <h6 class="text-center">{{ user.username }}
-                    
-                </div>
-            </div>
+                    <div class="card">
+                        <img src="https://images.pexels.com/photos/1010519/pexels-photo-1010519.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                            class="col-sm-10 rounded-img" alt="pic">
+                            <div class="card-footer">
+                                    <a class="btn " href="{{post.image_comments}}" role="button">
+                                    <i class="far fa-heart fa-2x"  style="color: red;"></i>
+                                  </a>
+                                  <a class="btn " href="{{post.image_comments}}" role="button">
+                                    <i class="far fa-comment fa-2x" style="color: blue;"></i></a>
+                                  </div>
             
-            
-
-            <!-- Stories section -->
-            <div class="col-sm-12 mt-4 b-2 card">
-                <div class="row">
-                    <!-- <p class="col-sm-6">stories</p>
-                    <p class="col-sm-6">watch all</p> -->
+                            
+                    </div>
+                    
                 </div>
                 
+                    </div>
 
-            </div>
-        </div>
+            
 
-        <!-- Padding right -->
-        <div class="col-sm-1"></div>
-        <!-- End padding -->
+                
+
+
+   
+
+
     </div>
+</div>
+</div>
+
+
+<!-- Padding right -->
+<div class="col-sm-1"></div>
+<!-- End padding -->
+</div>
 </div>
 <p><a href="/logout">Logout</a></p>
 {% else %}

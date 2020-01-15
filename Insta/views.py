@@ -1,10 +1,10 @@
-Learn more or give us feedback
+
 from django.shortcuts import render,redirect,get_object_or_404
 from django.http import HttpResponse,Http404,HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth.models import User
-from .forms import UpdateUserForm, UpdateUserProfileForm, PostForm, CommentForm, UserRegistrationForm
+from Insta.forms import UpdateUserForm, UpdateUserProfileForm, PostForm, CommentForm, UserRegistrationForm
 from django.contrib.auth import login, authenticate
 from .models import Profile,Post
 
@@ -18,12 +18,12 @@ def signup(request):
             user = authenticate(username=username, password=raw_password)
             login(request, user)
             return redirect('index')
-    else:
-        form = UserRegistrationForm()
-        params = {
-            'form': form
-        }
-    return render(request,'registration/register.html', locals())
+    # else:
+    #     form = RegistrationForm()
+    #     params = {
+    #         'form': form
+    #     }
+    return render(request,'registration/registration_form.html', locals())
 
 @login_required(login_url='login')
 def index(request):
@@ -47,7 +47,7 @@ def index(request):
         'users': users,
         'posts': posts,
     }
-    return render(request, 'insta/index.html', locals())
+    return render(request, 'home.html')
 
 @login_required(login_url='login')
 def profile(request):

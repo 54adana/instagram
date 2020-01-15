@@ -1,0 +1,30 @@
+{% extends 'login_base.html'%}
+
+{% block content %}
+<nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Instagram</a>
+      </div>
+      <form class="mb-0 h1 ml-auto mr-auto" id="searchform" action="{% url 'search' %}" style="float: left;" >
+        <input name="search_user" autocomplete="off" id="searching" class="form-control d-none d-md-block" placeholder="Search">
+       <i class="spinner"></i>
+   </form>
+      <ul class="nav navbar-nav">
+        <li><a href="{%url 'index'%}">Home</a></li>
+        <li> <a href="/login">login</a></li>
+        <!-- <li> <a href="/logout">logout</a></li> -->
+        <!-- <li><a href="/accounts/profile">Profile</a></li> -->
+        <li><a href="{%url 'uprofile' %}">Uprofile</a></li>
+    
+      </ul>
+    </div>
+  </nav>
+{% endblock %}
+
+<style>
+body{
+  overflow-x: auto;
+}
+
+</style>
