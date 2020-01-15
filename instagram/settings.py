@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 MODE=config("MODE", default="dev")
-SECRET_KEY = '&4_w3=g4md)edzu6g=(td**hu05u86r=xug+e5t@#)k=h%45(-'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
@@ -84,13 +84,15 @@ WSGI_APPLICATION = 'instagram.wsgi.application'
 
 if config('MODE')=="dev":
     DATABASES = {
-        'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'USER': 'yvette',
-        'PASSWORD':'yvette',
-        }
-    }
+       'default': {
+           'ENGINE': 'django.db.backends.postgresql_psycopg2',
+           'NAME': config('DB_NAME'),
+           'USER': config('DB_USER'),
+           'PASSWORD': config('DB_PASSWORD'),
+           'HOST': config('DB_HOST'),
+           'PORT': '',
+       }
+       
 else:
    DATABASES = {
        'default': dj_database_url.config(
