@@ -1,4 +1,4 @@
-Learn more or give us feedback
+
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
@@ -11,23 +11,8 @@ class Profile(models.Model):
     name = models.CharField(blank=True, max_length=120)
     location = models.CharField(max_length=60, blank=True)
 
-    class Meta:
-        db_table = 'profile'
 
-    def __str_lib/python3.6/site-packages/django/urls/resolvers.py_(self):
-        return f'{self.user.username} : {self.location}'
-    
-    @receiver(post_save, sender=User)
-    def create_user_profile(sender, instance, created, **kwargs):
-        if created:
-            Profile.objects.create(user=instance)
-
-    def save_user_profile(self):
-        self.save()
-
-    @classmethod
-    def search_profile(cls, name):
-        return cls.objects.filter(user__username__icontains=name).all()
+     
     
 class Post(models.Model):
     image = models.ImageField(upload_to='posts/')
