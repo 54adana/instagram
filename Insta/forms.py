@@ -25,7 +25,7 @@ class UpdateUserProfileForm(forms.ModelForm):
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('image', 'caption')
+        fields = ('image', 'caption','user')
 
 
 class CommentForm(forms.ModelForm):
@@ -37,3 +37,4 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ('comment',)
+
